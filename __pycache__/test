@@ -1,0 +1,17 @@
+Java
+public class Main {
+    public static void main(String[] args) {
+        VacuumCleaner vacuum = new VacuumCleaner();
+        Floor floor = new Floor();
+
+        // Khởi tạo sàn nhà và máy hút bụi
+
+        while (floor.hasDirt()) {
+            // Tìm vị trí có bụi gần nhất
+            int[] dirtyCell = floor.findNearestDirtyCell(vacuum.getX(), vacuum.getY());
+            vacuum.move(dirtyCell[0], dirtyCell[1]);
+            vacuum.clean();
+            vacuum.chargeIfNeeded();
+        }
+    }
+}
